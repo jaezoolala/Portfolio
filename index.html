@@ -432,6 +432,23 @@ button.dpic__front:focus-visible { outline: 2px solid var(--deckgold); outline-o
 .jack__frame { overflow: hidden; }
 .jack__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .jack__frame:has(img)::before { display: none; }
+.tl .lab { width: 200px; }
+@media (max-width: 700px) {
+.tl-scroll { overflow: visible; cursor: auto; }
+.tl-hint { display: none; }
+.tl-pad { min-width: 0; padding-inline: 0; }
+.tl { height: auto; padding: 6px 0 6px 34px; display: grid; gap: 34px; }
+.tl::before { left: 9px; right: auto; top: 14px; bottom: 14px; width: 2px; height: auto; background: linear-gradient(180deg, var(--gold), var(--plaster), var(--gold)); transform: none; transform-origin: top center; animation: drawLineV 1.2s cubic-bezier(.6, .1, .2, 1) both; }
+.tl li { position: relative; left: auto; top: auto; width: auto; height: auto; }
+.tl li::before { left: -24px; top: 12px; }
+.tl li::after { display: none; }
+.tl .lab, .tl li.up .lab, .tl li.down .lab { position: static; width: auto; top: auto; bottom: auto; transform: none; text-align: left; animation-name: labInV; }
+.tl li:hover .lab { transform: none; }
+.tl .nm { font-size: 1.3rem; }
+}
+@keyframes drawLineV { from { transform: scaleY(0); } }
+@keyframes labInV { from { opacity: 0; transform: translateY(10px); } }
+.tl .sub { display: block; margin-top: 6px; font: 400 1.05rem/1.25 var(--serif); color: var(--gold); text-transform: none; letter-spacing: 0; }
 .viewer[hidden] { display: none; }
 .viewer { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 16px; background: rgba(26, 19, 12, .88); }
 .viewer__panel {
@@ -588,10 +605,10 @@ a.pill:hover { transform: translateY(-2px); }
       <div class="tl-scroll" tabindex="0" role="group" aria-label="Timeline, scrolls sideways on small screens">
         <div class="tl-pad">
           <ol class="tl" aria-label="Education from 2008 to the present">
-            <li class="down" style="--p:0;--i:0"><div class="lab"><span class="yr">2008</span><span class="nm">Kindergarten</span></div></li>
-            <li class="up" style="--p:16.67;--i:1"><div class="lab"><span class="yr">2011</span><span class="nm">Primary school</span></div></li>
-            <li class="down" style="--p:50;--i:2"><div class="lab"><span class="yr">2017</span><span class="nm">Secondary school</span></div></li>
-            <li class="up" style="--p:77.78;--i:3"><div class="lab"><span class="yr">2022</span><span class="nm">A-Level College</span></div></li>
+            <li class="down" style="--p:0;--i:0"><div class="lab"><span class="yr">2008</span><span class="nm">Little Caterpillar Montessori</span><span class="sub">Kindergarten</span></div></li>
+            <li class="up" style="--p:16.67;--i:1"><div class="lab"><span class="yr">2011</span><span class="nm">SJK (C) Sebiew Bintulu</span><span class="sub">Primary school</span></div></li>
+            <li class="down" style="--p:50;--i:2"><div class="lab"><span class="yr">2017</span><span class="nm">MARA Junior Science College Mukah</span><span class="sub">Applied Science</span></div></li>
+            <li class="up" style="--p:77.78;--i:3"><div class="lab"><span class="yr">2022</span><span class="nm">Taylor’s College</span><span class="sub">Cambridge A-Level</span></div></li>
             <li class="down" style="--p:88.89;--i:4"><div class="lab"><span class="yr">2024</span><span class="nm">University of Wisconsin–Madison</span></div></li>
             <li class="up now" style="--p:100;--i:5"><div class="lab"><span class="yr">Present</span></div></li>
           </ol>
